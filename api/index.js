@@ -12,6 +12,7 @@ const stripeRoute = require("./routes/stripe");
 const cors = require("cors");
 
 dotenv.config()
+app.use(cors());
 
 mongoose
     .connect(process.env.MONGO_URL)
@@ -20,6 +21,11 @@ mongoose
         console.log(err)
     })
 
+//     app.all('*', (req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+//     next();
+// });
+
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
@@ -27,7 +33,10 @@ app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 //app.use("/api/checkout", stripeRoute);
-app.use(cors());
+
+// app.use(cors({
+//     origin: 'https://127.0.0.1:5000',
+// }))
 
 
 PORT = process.env.PORT
