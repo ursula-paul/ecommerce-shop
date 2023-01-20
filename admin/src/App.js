@@ -10,10 +10,10 @@ import {
 } from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
-import NewUser from "./pages/newUser/NewUser";
+import NewUser from "./pages/newUser/newUser.jsx";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
-import NewProduct from "./pages/newProduct/NewProduct";
+import NewProduct from "./pages/newProduct/newProduct.jsx";
 import Login from "./pages/login/Login";
 import { useSelector } from "react-redux";
 
