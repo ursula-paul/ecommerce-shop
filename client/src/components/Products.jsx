@@ -14,6 +14,7 @@ const Container = styled.div`
 const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [popularProducts, setpopularProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -59,10 +60,10 @@ const Products = ({ cat, filters, sort }) => {
   return (
     <Container>
       {cat
-        ? filteredProducts.map((item) => <Product item={item} key={item.id} />)
+        ? filteredProducts.map((item,id) => <Product item={item} key={id} />)
         : products
             .slice(0, 8)
-            .map((item) => <Product item={item} key={item.id} />)}
+            .map((item,id) => <Product item={item} key={id} />)}
     </Container>
   );
 };
