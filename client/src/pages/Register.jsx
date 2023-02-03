@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { useState } from "react";
 
 const Container = styled.div`
   width: 100vw;
@@ -55,24 +56,75 @@ const Button = styled.button`
 `;
 
 const Register = () => {
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [firstname, setFirstname] = useState("");
+  // const [lastname, setLirstname] = useState("");
+  // const [confirmpassword, setConfirmpassword] = useState("");
+  // const [username, setUsername] = useState("");
+
+  const [state, setState] = useState({
+    email: "",
+    password: "",
+    firstname: "",
+    lastname: "",
+    confirmpassword: "",
+    username:""
+    
+  })
+  const handleChange = (e) => {
+    console.log("gdgshh")
+    setState({
+      ...state,
+      [e.target.name]:e.target.value
+    })
+    console.log(state)
+  }
   return (
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
         <Form>
-          <Input placeholder="name" />
-          <Input placeholder="last name" />
-          <Input placeholder="username" />
-          <Input placeholder="email" />
+          <Input placeholder="first name"
+            value={state.firstname}
+            name="firstname"
+            onChange={handleChange}
+          />
+          <Input placeholder="last name"
+            value={state.lastname}
+            name="lastname"
+            onChange={handleChange}
+          />
+          <Input placeholder="username"
+            value={state.username}
+            name="username"
+            onChange={handleChange}
+          />
+          <Input placeholder="email"
+            value={state.email}
+            name="email"
+            onChange={handleChange}
+          />
           <Input placeholder="password"
-            type="password" />
-          
-          <Input placeholder="confirm password" />
+            type="password" 
+            value={state.password}
+            name="password"
+            onChange={handleChange}
+          />
+          <Input placeholder="confirm password"
+            type="password"
+            value={state.confirmpassword}
+            name="confirmpassword"
+            onChange={handleChange}
+
+          />
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
-          <Button>CREATE</Button>
+         <Button onClick={handleClick}>
+            CREATE
+          </Button>
         </Form>
       </Wrapper>
     </Container>

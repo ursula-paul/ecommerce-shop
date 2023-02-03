@@ -84,10 +84,14 @@ const Login = () => {
         <Title>SIGN IN</Title>
         <Form>
           <Input
+            value={username}
+            name = "username"
             placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
           />
-          <Input
+          <Input 
+            value={password}
+            name="password"
             placeholder="password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
